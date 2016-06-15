@@ -1,0 +1,35 @@
+{% extends 'music/base.html'%} 
+{%block body%}
+
+		<h1> Here are my albums....</h1>
+      
+	{% if all_albums %}
+ 	 
+		{% for album in all_albums  %}
+  
+		<div class="conatiner" >
+ 			<div class="col-md-4" >
+ 				<li><a href="{% url 'music:detail' album.id %}">{{album.title}}</a></li>
+ 			  </br><img  src="{{album.album_logo}}"class="img-circle" class="img-responsive" class="thumbnail" id="5" height="240px" width="240px" display="inline"></br>
+  				</br>
+  				<span margin-bottom="10px">
+ 					  <a href="{% url 'music:detail' album.id %}" class="btn btn-info" role="button">LIsten</a>
+ 					  <a href="{% url 'music:album-update' album.id %}" class="btn btn-info" role="button">Update</a>
+ 					  <a href="{% url 'music:album-delete' album.id %}" class="btn btn-info" role="button">Delete</a>
+ 			  	</span>
+          
+
+  				
+  		</div>
+  		</div>
+      
+  
+
+    {% endfor%}
+  
+    
+	{% else %} 
+  		<h3>"you dont have any albums"</h3>
+  {%endif%} 
+
+{%endblock%}

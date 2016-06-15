@@ -1,0 +1,38 @@
+<! doctype html>
+<html>
+<head>
+<title>check</title>
+</head>
+<body>
+	{% extends 'music/base.html'%} 
+ {%block body%}
+ <div class="container-fluid">
+
+	<div class="row">
+
+		<div class="col-md-6" >
+			<img  src="{{album.album_logo}}"class="img-rounded" class="img-responsive" class="thumbnail" id="5" height="500px" width="500px"></br>	
+ 		</div>
+
+
+		<div class="col-md-6" >
+			<ul>
+				<h1><bold> {{album.title}}</bold></h1>
+ 				<h3>{{album.artist}}</h3>
+				{% for song in album.song_set.all %}
+					<li><a href="url"> {{song.song_title}} - {{song.file_type}}</a>
+						<audio controls>
+  							<source src="file:///C:/Users/HP/Desktop/123.mp3" type="audio/mpeg">
+								Your browser does not support the audio element.
+						</audio></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+ {%endblock%}			
+	
+
+
+</body>
+</html>
